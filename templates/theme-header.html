@@ -104,13 +104,11 @@ site_status_msg = get_site_status_msg(course_id)
           % endif
       % endif
       <%block name="navigation_global_links">
-        % if microsite.get_value('ENABLE_MKTG_SITE', settings.FEATURES.get('ENABLE_MKTG_SITE', False)):
         <li> <a href="${marketing_link('SCHOOLS')}">المساقات</a> </li>
         <li> <a href="${marketing_link('COURSES')}">فرص التعاون</a> </li>
         <li> <a href="${marketing_link('HOW_IT_WORKS')}">سجل الان</a> </li>
         <li> <a href="#">دخول</a> </li>
         <li> <a href="#">EN</a> </li>
-        % endif
       </%block>
       </ul>
 
