@@ -14,8 +14,22 @@ from status.status import get_site_status_msg
 <%! from microsite_configuration import microsite %>
 <%! from microsite_configuration.templatetags.microsite import platform_name %>
 
-## Provide a hook for themes to inject branding on top.
-<%block name="navigation_top" />
+<%block name="headextra">
+<!-- Bootstrap Core CSS -->
+<link href="${static.url('themes/zadi/css/bootstrap.min.css')}" rel="stylesheet" type="text/css">
+<link href="${static.url('themes/zadi/css/zadi.css')}" rel="stylesheet" type="text/css">
+
+<!-- Fonts -->
+<link href="${static.url('themes/zadi/font-awesome/css/font-awesome.min.css')}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${static.url('themes/zadi/css/flaticon.css')}">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<!-- IE8 support for HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</%block>
 
 <%block cached="False">
 <%
