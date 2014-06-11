@@ -1,10 +1,132 @@
 ## mako
-<%! from django.core.urlresolvers import reverse %>
-<%namespace name='static' file='/static_content.html'/>
-<%inherit file="/navigation.html"/>
+<%namespace name='static' file='static_content.html'/>
+<%namespace file='main.html' import="login_query, stanford_theme_enabled"/>
+<%!
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 
-## TODO: this will eventually be moved to the Sass
-<%block name="navigation_logo">
-  <img src="${static.url('themes/zadi/images/logo.png')}" height="50" alt="Home Page" />
+# App that handles subdomain specific branding
+import branding
+# app that handles site status messages
+from status.status import get_site_status_msg
+%>
+
+<%! from microsite_configuration import microsite %>
+<%! from microsite_configuration.templatetags.microsite import platform_name %>
+
+## Provide a hook for themes to inject branding on top.
+<%block name="navigation_top" />
+
+<%block cached="False">
+<%
+try:
+    course_id = course.id.to_deprecated_string()
+except:
+    # can't figure out a better way to get at a possibly-defined course var
+    course_id = None
+site_status_msg = get_site_status_msg(course_id)
+%>
+% if site_status_msg:
+<div class="site-status">
+  <div class="inner-wrapper">
+    <span class="white-error-icon"></span>
+    <p>${site_status_msg}</p>
+  </div>
+</div>
+% endif
 </%block>
 
+  <header class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="${marketing_link('ROOT')}"><img class="img-responsive" src="${static.url('themes/zadi/images/logo.png'}"></a>
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      % if course:
+      <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>
+      % endif
+
+    % if user.is_authenticated():
+    <ol class="left nav-global authenticated">
+      <%block name="navigation_global_links_authenticated">
+        % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+          <li class="nav-global-01">
+            <a href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
+          </li>
+        % endif
+      </%block>
+    </ol>
+    <ol class="user">
+      <li class="primary">
+        <a href="${reverse('dashboard')}" class="user-link">
+          <span class="avatar"></span>
+          <span class="sr">${_("Dashboard for:")} </span> ${user.username}
+        </a>
+      </li>
+      <li class="primary">
+        <a href="#" class="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr">${_("More options dropdown")}</span> &#9662;</a>
+        <ul class="dropdown-menu" aria-label="More Options" role="menu">
+          <%block name="navigation_dropdown_menu_links" >
+            <li><a href="${marketing_link('FAQ')}">${_("Help")}</a></li>
+          </%block>
+          <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
+        </ul>
+      </li>
+    </ol>
+      % if display_shopping_cart: # see shoppingcart.context_processor.user_has_cart_context_processor
+        <ol class="user">
+          <li class="primary">
+            <a class="shopping-cart" href="${reverse('shoppingcart.views.show_cart')}">
+              <i class="icon-shopping-cart"></i> ${_("Shopping Cart")}
+            </a>
+          </li>
+        </ol>
+      % endif
+    % else:
+    
+      <ul class="nav navbar-nav navbar-right">
+        <li> <a href="/login${login_query()}">عن زادي</a> </li>
+        % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+          % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+          <li>
+            <a href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register Now")}</a>
+          </li>
+          % else:
+          <li>
+            <a href="/register">${_("Register Now")}</a>
+          </li>
+          % endif
+      % endif
+      <%block name="navigation_global_links">
+        % if microsite.get_value('ENABLE_MKTG_SITE', settings.FEATURES.get('ENABLE_MKTG_SITE', False)):
+        <li> <a href="${marketing_link('SCHOOLS')}">المساقات</a> </li>
+        <li> <a href="${marketing_link('COURSES')}">فرص التعاون</a> </li>
+        <li> <a href="${marketing_link('HOW_IT_WORKS')}">سجل الان</a> </li>
+        <li> <a href="#">دخول</a> </li>
+        <li> <a href="#">EN</a> </li>
+        % endif
+      </%block>
+      </ul>
+
+    % endif
+    </div> <!-- /.navbar-collapse --> 
+  </div> <!-- /.container -->
+  </nav>
+</header>
+% if course:
+<!--[if IE]>
+<div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link_start}Chrome{chrome_link_end} or {ff_link_start}Firefox{ff_link_end}.').format(chrome_link_start='<a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">', chrome_link_end='</a>', ff_link_start='<a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">', ff_link_end='</a>')}</div>
+<![endif]-->
+% endif
+
+%if not user.is_authenticated():
+  <%include file="forgot_password_modal.html" />
+%endif
+
+<%include file="help_modal.html"/>
