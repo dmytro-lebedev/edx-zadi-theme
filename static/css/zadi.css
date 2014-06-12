@@ -154,7 +154,7 @@ header .intro-text .skills {
 	height: 92px;
 	margin-top: -35px;
 }
-.navbar-zadi {
+.navbar-zadi .navbar-nav>li>a {
 	text-transform: uppercase;
 	font-family: 'GE_SS_Two', Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: normal;
