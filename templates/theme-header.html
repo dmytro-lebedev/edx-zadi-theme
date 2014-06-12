@@ -50,7 +50,6 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 </%block>
 
-  <header class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
     <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -130,7 +129,6 @@ site_status_msg = get_site_status_msg(course_id)
     </div> <!-- /.navbar-collapse --> 
   </div> <!-- /.container -->
   </nav>
-</header>
 % if course:
 <!--[if IE]>
 <div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link_start}Chrome{chrome_link_end} or {ff_link_start}Firefox{ff_link_end}.').format(chrome_link_start='<a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">', chrome_link_end='</a>', ff_link_start='<a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">', ff_link_end='</a>')}</div>
@@ -142,13 +140,13 @@ site_status_msg = get_site_status_msg(course_id)
 %endif
 
 <%include file="help_modal.html"/>
+
+<%block name="js_extra">
 <script src="${static.url('themes/zadi/js/jquery-1.10.2.js')}"></script> 
 <script src="${static.url('themes/zadi/js/bootstrap.min.js')}"></script> 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> 
 <script src="${static.url('themes/zadi/js/classie.js')}"></script> 
 <script src="${static.url('themes/zadi/js/cbpAnimatedHeader.js')}"></script> 
 <script src="${static.url('themes/zadi/js/freelancer.js')}"></script>
-<%block name="js_extra">
-
 </%block>
 
