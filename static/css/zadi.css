@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'GE_SS_Two';
-	src: url('../themes/zadi/fonts/GE_SS_Two.eot?v=4.0.1');
-	src: url('../themes/zadi/fonts/GE_SS_Two.eot?#iefix&v=4.0.1') format('embedded-opentype'), url('../themes/zadi/fonts/GE_SS_Two.woff?v=4.0.1') format('woff'), url('../themes/zadi/fonts/GE_SS_Two.ttf?v=4.0.1') format('truetype'), url('../themes/zadi/fonts/GE_SS_Two.svg?v=4.0.1#GE_SS_Tworegular') format('svg');
+	src: url('../fonts/GE_SS_Two.eot?v=4.0.1');
+	src: url('../fonts/GE_SS_Two.eot?#iefix&v=4.0.1') format('embedded-opentype'), url('../fonts/GE_SS_Two.woff?v=4.0.1') format('woff'), url('../fonts/GE_SS_Two.ttf?v=4.0.1') format('truetype'), url('../fonts/GE_SS_Two.svg?v=4.0.1#GE_SS_Tworegular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -70,7 +70,7 @@ header {
 	text-align: center;
 	color: #fff;
 	background: #4eb66b;
-	background: url('../themes/zadi/images/slider-bg.jpg') bottom center no-repeat;
+	background: url('../images/slider-bg.jpg') bottom center no-repeat;
 }
 header .container {
 	padding-top: 100px;
