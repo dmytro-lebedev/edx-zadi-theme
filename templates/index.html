@@ -1,91 +1,410 @@
-<%! from django.utils.translation import ugettext as _ %>
-
+## mako
 <%! from django.core.urlresolvers import reverse %>
-<%inherit file="main.html" />
 <%namespace name='static' file='static_content.html'/>
 
-<section class="home">
-  <header class="zadi">
-	  <div class="container">
-	    <div class="row">
-	      <div class="col-lg-12">
-	        <div id="myCarousel" class="carousel slide"> 
-	          <!-- Indicators -->
-	          <ol class="carousel-indicators">
-	            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	            <li data-target="#myCarousel" data-slide-to="1"></li>
-	            <li data-target="#myCarousel" data-slide-to="2"></li>
-	          </ol>
-	          
-	          <!-- Wrapper for slides -->
-	          <div class="carousel-inner">
-	            <div class="item active">
-	              <div class="fill" ></div>
-	              <div class="carousel-caption">
-	               <i class="flaticon-head21"></i>
-	                <h1>العلم لمن يريد... </h1>
-	                <p class="zadi">لأي شخص، في أي مكان، و في أي وقت
-	                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
-	              </div>
-	            </div>
-	            <div class="item">
-	              <div class="fill" ></div>
-	              <div class="carousel-caption">
-	                <h1>العلم لمن يريد... </h1>
-	                <p class="zadi">لأي شخص، في أي مكان، و في أي وقت
-	                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
-	              </div>
-	            </div>
-	            <div class="item">
-	              <div class="fill" ></div>
-	              <div class="carousel-caption">
-	                <h1>العلم لمن يريد... </h1>
-	                <p class="zadi">لأي شخص، في أي مكان، و في أي وقت
-	                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
-	              </div>
-	            </div>
-	          </div>
-	          
-	          <!-- Controls --> 
-	          <a class="left carousel-control ltr" href="#myCarousel" data-slide="prev"> <span class="icon-prev"></span> </a> <a class="right carousel-control ltr" href="#myCarousel" data-slide="next"> <span class="icon-next"></span> </a>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-  </header>
-  <section class="container">
-    <section class="highlighted-courses">
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Welcome | zadi</title>
 
-      % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-        <section class="courses">
-            <ul class="courses-listing">
-            %for course in courses:
-              <li class="courses-listing-item">
-                <%include file="course.html" args="course=course" />
-              </li>
-            %endfor
-            </ul>
-        </section>
-      % endif
+<!-- Bootstrap Core CSS -->
+<link href="${static.url('themes/zadi/css/bootstrap.min.css')}" rel="stylesheet" type="text/css">
+<link href="${static.url('themes/zadi/css/zadi.css')}" rel="stylesheet" type="text/css">
 
-    </section>
-  </section>
+<!-- Fonts -->
+<link href="${static.url('themes/zadi/font-awesome/css/font-awesome.min.css')}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${static.url('themes/zadi/css/flaticon.css')}">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<!-- IE8 support for HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="#page-top"><img class="img-responsive" src="${static.url('themes/zadi/images/logo.png')}"></a> </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden"> <a href="#page-top"></a> </li>
+        <li> <a href="#">عن زادي</a> </li>
+        <li > <a href="#">كيف تتعلم مع زادي</a> </li>
+        <li> <a href="#">المساقات</a> </li>
+        <li> <a href="#">فرص التعاون</a> </li>
+        <li> <a href="#">سجل الان</a> </li>
+        <li> <a href="#">دخول</a> </li>
+        <li> <a href="#">EN</a> </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="myCarousel" class="carousel slide"> 
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+          
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="fill" ></div>
+              <div class="carousel-caption">
+               <i class="flaticon-head21"></i>
+                <h1>العلم لمن يريد... </h1>
+                <p>لأي شخص، في أي مكان، و في أي وقت
+                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="fill" ></div>
+              <div class="carousel-caption">
+                <h1>العلم لمن يريد... </h1>
+                <p>لأي شخص، في أي مكان، و في أي وقت
+                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="fill" ></div>
+              <div class="carousel-caption">
+                <h1>العلم لمن يريد... </h1>
+                <p>لأي شخص، في أي مكان، و في أي وقت
+                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Controls --> 
+          <a class="left carousel-control ltr" href="#myCarousel" data-slide="prev"> <span class="icon-prev"></span> </a> <a class="right carousel-control ltr" href="#myCarousel" data-slide="next"> <span class="icon-next"></span> </a> </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>مساقات زادي المرتقبة</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
+        </div>
+        <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
+        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
+        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
+        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+      </div>
+      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
+        </div>
+        <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
+        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
+        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
+        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+      </div>
+      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
+        </div>
+        <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
+        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
+        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
+        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+      </div>
+      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
+        </div>
+        <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
+        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
+        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
+        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+      </div>
+      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
+        </div>
+        <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
+        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
+        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
+        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+      </div>
+      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
+        </div>
+        <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
+        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
+        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
+        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+      </div>
+      <div class="col-lg-12 text-center"> <a href="#" class="btn-info btn-lg"> تصفح الجميع </a> </div>
+    </div>
+  </div>
 </section>
+<section class="success" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>تعاون مع زادي<br>
+          <small>تهدف زادي إلى إحداث ثورة في نوع، ومستوى، 
+          وكم التعليم في العالم العربي.</small> </h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 text-center" >
+        <h3><a href="#project-link" class="color-blue">الأساتذة والممارسين</a>
+          <p><i class="flaticon-persons8"></i></p>
+        </h3>
+        <p>تتيح زادي للأكاديميين والممارسين الخبراء فرصة لإلهام الآلاف من المتعلمين العرب المتعطشين للمحتويات الحديثة. ليس ذلك وحسب، بل توفر ...</p>
+      </div>
+      <div class="col-sm-4 text-center">
+        <h3><a href="#project-link" class="color-blue">المؤسسات التعليمية</a>
+          <p> <i class="flaticon-school47"></i></p>
+        </h3>
+        <p>تتيح "زادي" للمؤسسات التعليمية فرصة لإكتشاف عالم من التعليم عبر الإنترنت، واكتساب رؤى من أحدث التحليلات التعليمية ...</p>
+      </div>
+      <div class="col-sm-4 text-center">
+        <h3><a href="#project-link" class="color-blue">الشركات</a>
+          <p><i class="flaticon-two205"></i> </p>
+        </h3>
+        <p>تتيح "زادي" للشركات فرصة لتدريب وتقييم موظفيها الحاليين والمحتملين بطريقة مبتكرة على الإنترنت. يمثل أيضاً إنشاء مساق إلكتروني واسع ...</p>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2 text-center"> <a href="#" class="btn-info btn-lg"> شاركنا </a> </div>
+    </div>
+  </div>
+</section>
+<footer class="text-center">
+  <div class="footer-above">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <ul class="list-inline">
+            <li><a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a> </li>
+            <li><a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a> </li>
+            <li><a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a> </li>
+            <li><a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a> </li>
+            <li><a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-below">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>
+          <ul class="list-inline">
+            <li><a href="#" class="btn-sm">عن زادي</a></li>
+            <li>I</li>
+            <li><a href="#" class="btn-sm">تواصل مع زادي</a></li>
+          </ul>
+          </p>
+          <p>زادي هي مبادرة من مجموعة زاد للتعليم والتنمية © 1435 / 2014 </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="scroll-top page-scroll visible-xs visble-sm"> <a class="btn btn-primary" href="#page-top"> <i class="fa fa-chevron-up"></i> </a> </div>
 
-<%block name="js_extra">
-   <script type="text/javascript">
-      $(window).load(function() {
-         if(getParameterByName('next')) {
-              $('#login').trigger("click");
-         }
-      })
-   </script>
-</%block>
-
-% if show_signup_immediately is not UNDEFINED:
-  ## NOTE: This won't work in production, because anonymous views are cached, so it will
-  ## show either with or without this extra js for 3 minutes at a time.
-<script type="text/javascript">
-  $(window).load(function() {$('#signup_action').trigger("click");});
-</script>
-% endif
+<!-- Portfolio Modals -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl"> </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>لمحة عن المساق</h2>
+            <hr>
+            <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive img-centered" alt="">
+            <p>ما أن تقوم بتحديد أهدافك المهنية، يصبح التحدي الأكبر والأهم هو الحصول على استراتيجية تسويق فعالة ومجموعة أدوات من شأنها أن تقنع أصحاب العمل بقدرتك على تحقيق الكثير من القيم بإنضمامك الى الشركة. ونظراً للمنافسة الشديدة بين المرشحين التي يشهدها سوق العمل الحالي واتجاهات سوق العمل التي تتغير باستمرار تم تصميم مادة كتابة السيرة الذاتية الرابحة التي تضمن الحصول على الوظيفة،</p>
+            <ul class="list-inline item-details">
+              <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong> </li>
+              <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong> </li>
+              <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong> </li>
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl"> </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>لمحة عن المساق</h2>
+            <hr>
+            <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive img-centered" alt="">
+            <p>ما أن تقوم بتحديد أهدافك المهنية، يصبح التحدي الأكبر والأهم هو الحصول على استراتيجية تسويق فعالة ومجموعة أدوات من شأنها أن تقنع أصحاب العمل بقدرتك على تحقيق الكثير من القيم بإنضمامك الى الشركة. ونظراً للمنافسة الشديدة بين المرشحين التي يشهدها سوق العمل الحالي واتجاهات سوق العمل التي تتغير باستمرار تم تصميم مادة كتابة السيرة الذاتية الرابحة التي تضمن الحصول على الوظيفة،</p>
+            <ul class="list-inline item-details">
+              <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong> </li>
+              <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong> </li>
+              <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong> </li>
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl"> </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>لمحة عن المساق</h2>
+            <hr>
+            <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive img-centered" alt="">
+            <p>ما أن تقوم بتحديد أهدافك المهنية، يصبح التحدي الأكبر والأهم هو الحصول على استراتيجية تسويق فعالة ومجموعة أدوات من شأنها أن تقنع أصحاب العمل بقدرتك على تحقيق الكثير من القيم بإنضمامك الى الشركة. ونظراً للمنافسة الشديدة بين المرشحين التي يشهدها سوق العمل الحالي واتجاهات سوق العمل التي تتغير باستمرار تم تصميم مادة كتابة السيرة الذاتية الرابحة التي تضمن الحصول على الوظيفة،</p>
+            <ul class="list-inline item-details">
+              <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong> </li>
+              <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong> </li>
+              <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong> </li>
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl"> </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>لمحة عن المساق</h2>
+            <hr>
+            <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive img-centered" alt="">
+            <p>ما أن تقوم بتحديد أهدافك المهنية، يصبح التحدي الأكبر والأهم هو الحصول على استراتيجية تسويق فعالة ومجموعة أدوات من شأنها أن تقنع أصحاب العمل بقدرتك على تحقيق الكثير من القيم بإنضمامك الى الشركة. ونظراً للمنافسة الشديدة بين المرشحين التي يشهدها سوق العمل الحالي واتجاهات سوق العمل التي تتغير باستمرار تم تصميم مادة كتابة السيرة الذاتية الرابحة التي تضمن الحصول على الوظيفة،</p>
+            <ul class="list-inline item-details">
+              <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong> </li>
+              <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong> </li>
+              <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong> </li>
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl"> </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>لمحة عن المساق</h2>
+            <hr>
+            <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive img-centered" alt="">
+            <p>ما أن تقوم بتحديد أهدافك المهنية، يصبح التحدي الأكبر والأهم هو الحصول على استراتيجية تسويق فعالة ومجموعة أدوات من شأنها أن تقنع أصحاب العمل بقدرتك على تحقيق الكثير من القيم بإنضمامك الى الشركة. ونظراً للمنافسة الشديدة بين المرشحين التي يشهدها سوق العمل الحالي واتجاهات سوق العمل التي تتغير باستمرار تم تصميم مادة كتابة السيرة الذاتية الرابحة التي تضمن الحصول على الوظيفة،</p>
+            <ul class="list-inline item-details">
+              <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong> </li>
+              <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong> </li>
+              <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong> </li>
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl"> </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>لمحة عن المساق</h2>
+            <hr>
+            <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive img-centered" alt="">
+            <p>ما أن تقوم بتحديد أهدافك المهنية، يصبح التحدي الأكبر والأهم هو الحصول على استراتيجية تسويق فعالة ومجموعة أدوات من شأنها أن تقنع أصحاب العمل بقدرتك على تحقيق الكثير من القيم بإنضمامك الى الشركة. ونظراً للمنافسة الشديدة بين المرشحين التي يشهدها سوق العمل الحالي واتجاهات سوق العمل التي تتغير باستمرار تم تصميم مادة كتابة السيرة الذاتية الرابحة التي تضمن الحصول على الوظيفة،</p>
+            <ul class="list-inline item-details">
+              <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong> </li>
+              <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong> </li>
+              <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong> </li>
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="${static.url('themes/zadi/js/jquery-1.10.2.js')}"></script> 
+<script src="${static.url('themes/zadi/js/bootstrap.min.js')}"></script> 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> 
+<script src="${static.url('themes/zadi/js/classie.js')}"></script> 
+<script src="${static.url('themes/zadi/js/cbpAnimatedHeader.js')}"></script> 
+<script src="${static.url('themes/zadi/js/freelancer.js')}"></script>
+</body>
+</html>
