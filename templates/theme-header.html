@@ -1,4 +1,9 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
+<%! from microsite_configuration.templatetags.microsite import platform_name %>
 <%namespace name='static' file='/static_content.html'/>
 <%inherit file="navigation.html" />
+
+<%block name="navigation_logo">
+  <img src="${static.url('themes/zadi/images/logo.png')}" alt="${platform_name()}"/>
+</%block>
