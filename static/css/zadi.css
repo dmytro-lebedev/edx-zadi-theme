@@ -8,6 +8,7 @@
 body {
 	overflow-x: hidden;
 	line-height: 1.628571;
+	padding-top: 130px;
 }
 p {
 	font-size: 16px;
@@ -83,7 +84,7 @@ header.zadi .container {
 	margin:.27em 0;
 	line-height:1em;
 }
-.carousel-caption p {
+.carousel-caption p.zadi {
 	font-size: 20px;
 	padding: 10px;
 	line-height: 1.2em
@@ -132,44 +133,44 @@ header.zadi .intro-text .skills {
 }
 
 @media(min-width:768px) {
-.navbar-zadi.navbar-fixed-top {
+.navbar-fixed-top {
 	padding: 36px 0;
 	-webkit-transition: padding .3s;
 	-moz-transition: padding .3s;
 	transition: padding .3s;
 }
-.navbar-zadi.navbar-fixed-top .navbar-brand {
+.navbar-fixed-top .navbar-brand {
 	font-size: 2em;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.navbar-zadi.navbar-fixed-top.navbar-shrink {
+.navbar-fixed-top.navbar-shrink {
 	padding: 10px 0;
 }
 }
-.navbar-zadi.navbar-fixed-top.navbar-shrink .navbar-brand img {
+.navbar-fixed-top.navbar-shrink .navbar-brand img {
 	padding: 25px 0;
 	width: 72px;
 	height: 92px;
 	margin-top: -35px;
 }
-.navbar-zadi.navbar .navbar-nav li a {
+.navbar-zadi .navbar-nav li a {
 	text-transform: uppercase;
 	font-family: 'GE_SS_Two', Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 150%;
 }
-.navbar-zadi.navbar a:focus {
+.navbar-zadi a:focus {
 	outline: 0;
 }
-.navbar-zadi.navbar .navbar-nav {
+.navbar-zadi .navbar-nav {
 	letter-spacing: 1px;
 }
-.navbar-zadi.navbar .navbar-nav li a:focus {
+.navbar-zadi .navbar-nav li a:focus {
 	outline: 0;
 }
-.navbar-zadi.navbar-default {
+.navbar-default {
 	border-top: 5px solid #4eb66b;
 }
 section.zadi {
