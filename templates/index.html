@@ -1,5 +1,8 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
+<%! from microsite_configuration import microsite %>
+<%! from microsite_configuration import page_title_breadcrumbs %>
+<%namespace file='main.html' import="login_query"/>
 <%namespace name='static' file='static_content.html'/>
 
 <!DOCTYPE html>
@@ -9,7 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Welcome | zadi</title>
+<title>${page_title_breadcrumbs('ترحيب')}</title>
+<link rel="icon" type="image/x-icon" href="${static.url(microsite.get_value('favicon_path', settings.FAVICON_PATH))}" />
 
 <!-- Bootstrap Core CSS -->
 <link href="${static.url('themes/zadi/css/bootstrap.min.css')}" rel="stylesheet" type="text/css">
@@ -36,7 +40,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header page-scroll">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="#page-top"><img class="img-responsive" src="${static.url('themes/zadi/images/logo.png')}"></a> </div>
+      <a class="navbar-brand" href="${marketing_link('ROOT')}"><img class="img-responsive" src="${static.url('themes/zadi/images/logo.png')}"></a> </div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,8 +50,8 @@
         <li > <a href="#">كيف تتعلم مع زادي</a> </li>
         <li> <a href="#">المساقات</a> </li>
         <li> <a href="#">فرص التعاون</a> </li>
-        <li> <a href="#">سجل الان</a> </li>
-        <li> <a href="#">دخول</a> </li>
+        <li> <a href="/register">سجل الان</a> </li>
+        <li> <a href="/login${login_query()}">دخول</a> </li>
         <li> <a href="#">EN</a> </li>
       </ul>
     </div>
@@ -118,7 +122,7 @@
         <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
         <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
         <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
       </div>
       <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
         <div class="caption">
@@ -127,7 +131,7 @@
         <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
         <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
         <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
       </div>
       <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
         <div class="caption">
@@ -136,7 +140,7 @@
         <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
         <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
         <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
       </div>
       <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
         <div class="caption">
@@ -145,7 +149,7 @@
         <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
         <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
         <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
       </div>
       <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
         <div class="caption">
@@ -154,7 +158,7 @@
         <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
         <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
         <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
       </div>
       <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
         <div class="caption">
@@ -163,7 +167,7 @@
         <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
         <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
         <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="#" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
       </div>
       <div class="col-lg-12 text-center"> <a href="#" class="btn-info btn-lg"> تصفح الجميع </a> </div>
     </div>
