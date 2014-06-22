@@ -5,15 +5,15 @@
   font-weight: normal;
   font-style: normal;
 }
-body {
+body * {
   font-family: 'GE_SS_Two', Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 	overflow-x: hidden;
   line-height: 1.628571;
 }
-a, footer a:hover, footer a:focus, footer a:active, footer a.active {
-  outline: 0 !important;
-  color: #4eb66b !important;
-  text-decoration: none !important;
+a, a:hover, a:focus, a:active, a.active {
+  outline: 0;
+  color: #4eb66b;
+  text-decoration: none;
 }
 footer .btn-outline {
   margin-top: 15px;
@@ -54,4 +54,10 @@ footer .btn-social {
   text-align: center;
   font-size: 26px;
   line-height: 53px;
+}
+.view-register header.global nav, .view-login header.global nav {
+  height: auto;
+}
+.view-login .introduction header {
+  overflow-y: hidden;
 }
