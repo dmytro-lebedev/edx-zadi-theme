@@ -5,16 +5,12 @@
   font-weight: normal;
   font-style: normal;
 }
-body {
-  overflow-x: hidden;
-  line-height: 1.628571;
-}
-a, a:hover, a:focus, a:active, a.active {
+footer a, footer a:hover, footer a:focus, footer a:active, footer a.active {
   outline: 0;
   color: #4eb66b;
   text-decoration: none
 }
-.btn-outline {
+footer .btn-outline {
   margin-top: 15px;
   border: solid 1px #002b3c;
   font-size: 20px;
@@ -22,7 +18,7 @@ a, a:hover, a:focus, a:active, a.active {
   background: 0 0;
   transition: all .3s ease-in-out;
 }
-.btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
+footer .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
   border: solid 1px #002b3c;
   color: #fff;
   background: #002b3c;
@@ -44,7 +40,7 @@ footer .footer-below {
   background-color: #fff;
   border-bottom: 5px solid #ffd44f;
 }
-.btn-social {
+footer .btn-social {
   display: inline-block;
   width: 50px;
   height: 50px;
