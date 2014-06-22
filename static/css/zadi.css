@@ -8,7 +8,6 @@
 body {
 	overflow-x: hidden;
 	line-height: 1.628571;
-	margin-top: 130px;
 }
 p {
 	font-size: 16px;
@@ -67,13 +66,13 @@ hr.star-primary:after {
 .img-centered {
 	margin: 0 auto;
 }
-header {
+header.zadi {
 	text-align: center;
 	color: #fff;
 	background: #4eb66b;
 	background: url('../images/slider-bg.jpg') bottom center no-repeat;
 }
-header .container {
+header.zadi .container {
 	padding-top: 100px;
 	padding-bottom: 50px;
 }
@@ -104,102 +103,98 @@ header .container {
 .carousel-indicators {
 	bottom: -40px;
 }
-header img {
+header.zadi img {
 	display: block;
 	margin: 0 auto 20px;
 }
-header .intro-text .name {
+header.zadi .intro-text .name {
 	display: block;
 	text-transform: uppercase;
 	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 2em;
 	font-weight: 700;
 }
-header .intro-text .skills {
+header.zadi .intro-text .skills {
 	font-size: 1.25em;
 	font-weight: 300;
 }
 
 @media(min-width:768px) {
-header .container {
+header.zadi .container {
 	padding: 130px 0 50px;
 }
-header .intro-text .name {
+header.zadi .intro-text .name {
 	font-size: 5em;
 }
-header .intro-text .skills {
+header.zadi .intro-text .skills {
 	font-size: 1.75em;
 }
 }
 
 @media(min-width:768px) {
-.navbar-fixed-top {
+.navbar-zadi.navbar-fixed-top {
 	padding: 36px 0;
 	-webkit-transition: padding .3s;
 	-moz-transition: padding .3s;
 	transition: padding .3s;
 }
-.navbar-fixed-top .navbar-brand {
+.navbar-zadi.navbar-fixed-top .navbar-brand {
 	font-size: 2em;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.navbar-fixed-top.navbar-shrink {
+.navbar-zadi.navbar-fixed-top.navbar-shrink {
 	padding: 10px 0;
 }
 }
-.navbar-fixed-top.navbar-shrink .navbar-brand img {
+.navbar-zadi.navbar-fixed-top.navbar-shrink .navbar-brand img {
 	padding: 25px 0;
 	width: 72px;
 	height: 92px;
 	margin-top: -35px;
 }
-.navbar-zadi .navbar-nav>li>a {
+.navbar-zadi.navbar .navbar-nav li a {
 	text-transform: uppercase;
 	font-family: 'GE_SS_Two', Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 150%;
 }
-.navbar a:focus {
+.navbar-zadi.navbar a:focus {
 	outline: 0;
 }
-.navbar .navbar-nav {
+.navbar-zadi.navbar .navbar-nav {
 	letter-spacing: 1px;
 }
-.navbar .navbar-nav li a:focus {
+.navbar-zadi.navbar .navbar-nav li a:focus {
 	outline: 0;
 }
-.navbar-default, .navbar-inverse {
+.navbar-zadi.navbar-default {
 	border-top: 5px solid #4eb66b;
 }
-section {
+section.zadi {
 	padding: 65px 0;
 }
-section h2 {
+section.zadi h2 {
 	margin: 0;
 	font-size: 3em;
 }
-section.success {
+section.zadi.success {
 	color: #002b3c;
 	background: #f7f8f8;
 }
-.navbar-brand img {
+.navbar-zadi .navbar-brand img {
 	margin-top: -36px;
 }
 
 @media(max-width:767px) {
-.navbar-brand img {
+.navbar-zadi .navbar-brand img {
 	width: 72px;
 	height: 42px;
 	margin-top: -10px;
 }
-section {
+section.zadi {
 	padding: 75px 0;
-}
-section.first {
-	padding-top: 75px;
-}
 }
 #portfolio .portfolio-item {
 	right: 0;
@@ -310,19 +305,19 @@ section.first {
 form .row:first-child .floating-label-form-group {
 	border-top: 1px solid #eee;
 }
-footer {
+footer.zadi {
 	color: #002b3c;
 }
-footer h3 {
+footer.zadi h3 {
 	margin-bottom: 30px;
 }
-footer .footer-above {
+footer.zadi .footer-above {
 	background-color: #ffd44f;
 }
-footer .footer-col {
+footer.zadi .footer-col {
 	margin-bottom: 50px;
 }
-footer .footer-below {
+footer.zadi .footer-below {
 	padding: 25px 0;
 	background-color: #fff;
 	border-bottom: 5px solid #ffd44f;
@@ -421,7 +416,7 @@ footer .footer-below {
 }
 
 @media(max-width:991px) {
-.nav>li>a {
+.navbar-zadi .nav > li > a {
 	padding: 10px 3px !important;
 }
 }
