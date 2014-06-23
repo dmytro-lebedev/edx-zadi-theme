@@ -63,8 +63,11 @@ footer .btn-social {
   font-size: 26px;
   line-height: 53px;
 }
-.view-register header.global nav, .view-login header.global nav {
+header.global nav {
   height: auto;
+}
+header.global .nav-global li a {
+  font-size: 14px;
 }
 .view-login .introduction header {
   overflow-y: hidden;
