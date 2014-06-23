@@ -115,60 +115,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-        <div class="caption">
-          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
-        </div>
-        <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
-        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
-        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
-      </div>
-      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-        <div class="caption">
-          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
-        </div>
-        <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
-        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
-        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
-      </div>
-      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-        <div class="caption">
-          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
-        </div>
-        <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
-        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
-        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
-      </div>
-      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-        <div class="caption">
-          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
-        </div>
-        <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
-        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
-        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
-      </div>
-      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-        <div class="caption">
-          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
-        </div>
-        <img src="${static.url('themes/zadi/images/portfolio/m1.jpg')}" class="img-responsive" alt="" /> </a>
-        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
-        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
-      </div>
-      <div class="col-sm-4 portfolio-item"> <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-        <div class="caption">
-          <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
-        </div>
-        <img src="${static.url('themes/zadi/images/portfolio/m2.jpg')}" class="img-responsive" alt="" /> </a>
-        <h3><a href="#project-link">مقدمة في علم الحاسوب والبرمجة</a> </h3>
-        <p>زادي <small class="pull-left">"يونيو 15 2014" </small></p>
-        <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
-      </div>
+      %for course in courses:
+        <%include file="course.html" args="course=course" />
+      %endfor
       <div class="col-lg-12 text-center"> <a href="#" class="btn-info btn-lg"> تصفح الجميع </a> </div>
     </div>
   </div>

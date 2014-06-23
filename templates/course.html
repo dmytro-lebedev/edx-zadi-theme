@@ -1,0 +1,17 @@
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from courseware.courses import course_image_url, get_course_about_section
+%>
+<%page args="course" />
+
+<div class="col-sm-4 portfolio-item"> <a href="${course.id.to_deprecated_string()}" class="portfolio-link" data-toggle="modal">
+  <div class="caption">
+    <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
+  </div>
+  <img src="${course_image_url(course)}" alt="${course.display_number_with_default | h} ${get_course_about_section(course, 'title')} Cover Image" /> </a>
+  <h3><a href="#project-link">${get_course_about_section(course, 'title')}</a> </h3>
+  <p>زادي <small class="pull-left">"${course.start_date_text}" </small></p>
+  <p> <a href="/register" class="btn-success btn-sm"> إنضم مجاناً </a></p>
+</div>
