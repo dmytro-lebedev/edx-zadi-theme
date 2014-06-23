@@ -115,8 +115,8 @@
       </div>
     </div>
     <div class="row">
-      %for course in courses:
-        <%include file="course.html" args="course=course, id=loop.index" />
+      %for id, course in courses:
+        <%include file="course.html" args="course=course, id=id" />
       %endfor
       <div class="col-lg-12 text-center"> <a href="#" class="btn-info btn-lg"> تصفح الجميع </a> </div>
     </div>
@@ -191,8 +191,8 @@
 <div class="scroll-top page-scroll visible-xs visble-sm"> <a class="btn btn-primary" href="#page-top"> <i class="fa fa-chevron-up"></i> </a> </div>
 
 <!-- Portfolio Modals -->
-%for course in courses:
-  <%include file="course_modal.html" args="course=course, id=loop.index" />
+%for id, course in courses:
+  <%include file="course_modal.html" args="course=course, id=id" />
 %endfor
 
 <script src="${static.url('themes/zadi/js/jquery-1.10.2.js')}"></script> 
