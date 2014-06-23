@@ -4,9 +4,9 @@ from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 from courseware.courses import course_image_url, get_course_about_section
 %>
-<%page args="course" />
+<%page args="course, id" />
 
-<div class="col-sm-4 portfolio-item"> <a href="#portfolioModal${course.id}" class="portfolio-link" data-toggle="modal">
+<div class="col-sm-4 portfolio-item"> <a href="#portfolioModal${id}" class="portfolio-link" data-toggle="modal">
   <div class="caption">
     <div class="caption-content"> <i class="fa fa-search-plus fa-3x"></i> </div>
   </div>
