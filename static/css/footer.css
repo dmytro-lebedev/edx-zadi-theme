@@ -5,15 +5,17 @@
   font-weight: normal;
   font-style: normal;
 }
-body * {
-  font-family: 'GE_SS_Two', Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+body {
 	overflow-x: hidden;
   line-height: 1.628571;
 }
+header *, section *, .content-wrapper * {
+  font-family: 'GE_SS_Two', Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
 a, a:hover, a:focus, a:active, a.active {
-  outline: 0;
-  color: #4eb66b;
-  text-decoration: none;
+  outline: 0 !important;
+  color: #4eb66b !important;
+  text-decoration: none !important;
 }
 footer .btn-outline {
   margin-top: 15px;
