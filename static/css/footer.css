@@ -12,7 +12,9 @@ body {
 header *, section *, .content-wrapper * {
   font-family: 'GE_SS_Two', Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
-a, a:hover, a:focus, a:active, a.active {
+header a, header a:hover, header a:focus, header a:active, header a.active,
+section a, section a:hover, section a:focus, section a:active, section a.active,
+.content-wrapper a, .content-wrapper a:hover, .content-wrapper a:focus, .content-wrapper a:active, .content-wrapper a.active {
   outline: 0 !important;
   color: #4eb66b !important;
   text-decoration: none !important;
