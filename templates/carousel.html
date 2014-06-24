@@ -2,6 +2,10 @@
 <%! from carousel.models import Slide %>
 <%namespace name='static' file='/static_content.html'/>
 
+<%
+  slides = Slide.oblects.filter(active=True)
+%>
+
 <header>
   <div class="container">
     <div class="row">
@@ -9,38 +13,33 @@
         <div id="myCarousel" class="carousel slide">
           <!-- Indicators -->
           <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+			      %for i in range(slides):
+			        %if i == 0:
+                <li data-target="#myCarousel" data-slide-to="${i}" class="active"></li>
+              %else:
+                <li data-target="#myCarousel" data-slide-to="${i}"></li>
+              %endif
+			      %endfor
           </ol>
           
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
-            <div class="item active">
+            %for i, slide in enumerate(slides):
+              %if i == 0:
+                <div class="item active">
+              %else:
+                <div class="item">
+              %endif
               <div class="fill" ></div>
               <div class="carousel-caption">
-                <i class="flaticon-head21"></i>
-                <h1>العلم لمن يريد... </h1>
-                <p>لأي شخص، في أي مكان، و في أي وقت
-                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
+                <a href="${slide.url}">
+                  <img src="${slide.image.url}">
+                  <h1>${slide.title}</h1>
+                  <p>${slide.description}</p>
+                </a>
               </div>
             </div>
-            <div class="item">
-              <div class="fill" ></div>
-              <div class="carousel-caption">
-                <h1>العلم لمن يريد... </h1>
-                <p>لأي شخص، في أي مكان، و في أي وقت
-                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="fill" ></div>
-              <div class="carousel-caption">
-                <h1>العلم لمن يريد... </h1>
-                <p>لأي شخص، في أي مكان، و في أي وقت
-                  زادي هي مبادرة من مجموعة زاد للتعليم والتنمية</p>
-              </div>
-            </div>
+            %endfor
           </div>
           
           <!-- Controls --> 
