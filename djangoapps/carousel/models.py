@@ -1,4 +1,4 @@
-from django.db import Model
+from django.db.models import Model
 from django.db.models.fields import CharField, URLField, BooleanField
 from django.db.models.fields.files import ImageField
 
