@@ -72,3 +72,7 @@ header.global .nav-global li a {
 .view-login .introduction header {
   overflow-y: hidden;
 }
+.course-info header.course-profile {
+	padding-bottom: 80px;
+	height: auto;
+}
