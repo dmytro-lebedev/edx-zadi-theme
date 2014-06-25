@@ -8,7 +8,7 @@ class Slide(Model):
     title = CharField(max_length=255)
     description = CharField(max_length=255)
     url = URLField(blank=True)
-    image = ImageField(storage=FileSystemStorage('{}/carousel/slides/'.format(MEDIA_ROOT), MEDIA_URL), upload_to='carousel/slides')
+    image = ImageField(storage=FileSystemStorage('{}/carousel/slides/'.format(MEDIA_ROOT), '{}/carousel/slides/'.format(MEDIA_URL)))
     order = PositiveIntegerField(default=0)
     active = BooleanField()
     
