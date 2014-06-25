@@ -10,3 +10,6 @@ class Slide(Model):
     url = URLField(blank=True)
     image = ImageField(storage=FileSystemStorage('{}/carousel/slides/'.format(MEDIA_ROOT), '{}/carousel/slides/'.format(MEDIA_URL)))
     active = BooleanField()
+    
+    def __unicode__(self):
+        return self.title
