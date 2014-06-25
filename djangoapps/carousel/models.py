@@ -7,5 +7,5 @@ class Slide(Model):
     title = CharField(max_length=255)
     description = CharField(max_length=255)
     url = URLField(blank=True)
-    image = ImageField(storage=FileSystemStorage(), upload_to='carousel/slides')
+    image = ImageField(storage=FileSystemStorage('/edx/app/edxapp/uploads/carousel/slides', '/static/uploads/'))
     active = BooleanField()
