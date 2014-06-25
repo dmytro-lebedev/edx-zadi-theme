@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-import lms
+from lms import lms
 
 THEME_ROOT = settings.ENV_ROOT / 'themes' / settings.THEME_NAME
 settings.MEDIA_ROOT = THEME_ROOT / 'uploads'
